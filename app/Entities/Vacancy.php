@@ -12,6 +12,8 @@ use Carbon\Carbon;
  */
 class Vacancy
 {
+    public static $allowedForRead = ['id', 'title', 'content', 'categoryId', 'location', 'createdAt', 'updatedAt'];
+    public static $allowedForWrite = ['title', 'content', 'categoryId', 'location'];
     /**
      * @ORM\Id
      * @ORM\GeneratedValue

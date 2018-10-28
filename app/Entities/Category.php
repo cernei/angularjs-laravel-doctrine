@@ -11,6 +11,8 @@ use Carbon\Carbon;
  */
 class Category
 {
+    public static $allowedForRead = ['id', 'title'];
+    public static $allowedForWrite = ['title'];
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
