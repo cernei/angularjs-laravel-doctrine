@@ -13,5 +13,6 @@ use Illuminate\Http\Request;
 |
 */
 Route::middleware('api')->resource('categories', 'CrudController');
+Route::middleware('api')->get('vacancies/search', 'VacancyController@search');
 Route::middleware('api')->resource('vacancies', 'CrudController');
 
