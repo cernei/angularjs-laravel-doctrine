@@ -1,24 +1,30 @@
 import angular from 'angular';
 import uiRouter from "@uirouter/angularjs";
-
+import 'angularjs-datepicker';
+import dataService from './services/data';
 import '../style/app.css';
 
-var myApp = angular.module('app', [uiRouter]);
+import {search} from "./components/vacancy.search";
+import {vacancy} from "./components/vacancy";
+
+var myApp = angular.module('app', [uiRouter, '720kb.datepicker']);
 
 myApp.config(function ($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/vacancies');
   var searchState = {
     name: 'search',
-    url: '/vacancies',
-    template: `this is search page`
+    url: '/vacancies?q&category_id&location&date_from&date_to&page',
+    component: 'search'
   };
 
   var vacancyState = {
     name: 'vacancy',
     url: '/vacancy/:id',
-    template: `this is vacancy page`
+    component: 'vacancy'
   };
 
   $stateProvider.state(searchState);
   $stateProvider.state(vacancyState);
-});
+}).component('search', search)
+  .component('vacancy', vacancy)
+  .service('$dataService', dataService);
