@@ -9,7 +9,7 @@ import {vacancy} from "./components/vacancy";
 
 var myApp = angular.module('app', [uiRouter, '720kb.datepicker']);
 
-myApp.config(function ($stateProvider, $urlRouterProvider) {
+myApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/vacancies');
   var searchState = {
     name: 'search',
@@ -25,6 +25,6 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
 
   $stateProvider.state(searchState);
   $stateProvider.state(vacancyState);
-}).component('search', search)
+}]).component('search', search)
   .component('vacancy', vacancy)
   .service('$dataService', dataService);

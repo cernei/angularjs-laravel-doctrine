@@ -1,6 +1,6 @@
 const url = process.env.API_URL;
 
-export default class dataService {
+class dataService {
   constructor($http) {
     this.$http = $http;
     this.isCategoriesLoaded = false;
@@ -42,3 +42,5 @@ export default class dataService {
 
   }
 }
+dataService.$inject = ['$http'];
+export default dataService;

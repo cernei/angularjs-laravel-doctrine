@@ -41,6 +41,7 @@ class VacancySearch {
   }
 
 }
+VacancySearch.$inject = ['$state', '$dataService'];
 export const search = {
   controller: VacancySearch,
   template: `

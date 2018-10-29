@@ -7,6 +7,9 @@ class Vacancy {
   }
 
 }
+
+Vacancy.$inject = ['$stateParams', '$dataService'];
+
 export const vacancy = {
   controller: Vacancy,
   template: `
